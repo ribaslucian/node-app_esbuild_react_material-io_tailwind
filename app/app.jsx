@@ -14,4 +14,15 @@ import {MDCTextField} from '@material/textfield';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
 
-// ESBuild Sass
+// MUI Components
+import Welcome from './MUIButton';
+
+// const welcome = <Welcome name="Sara" />;
+
+// ReactDOM.render(
+//   welcome,
+//   document.getElementById('mui')
+// );
+
+// const muiButton = <MUIButton />;
+// ReactDOM.render(muiButton, document.getElementById('mui'));

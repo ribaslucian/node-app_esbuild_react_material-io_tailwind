@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@material/base": "^13.0.0",
     "@material/floating-label": "^13.0.0",
     "@material/textfield": "^13.0.0",
+    "@mui/material": "^5.2.8",
     "dart-sass": "^1.25.0",
     "esbuild": "^0.14.11",
     "esbuild-sass-plugin": "^2.0.3",
@@ -12,7 +15,7 @@
   },
   "scripts": {
     "build": "esbuild app/app.jsx --bundle --outfile=dist/app.js --minify",
-    "build:tilwind": "tailwindcss -i ./app/app.tail.css -o ./dist/app.css",
+    "build:tail": "tailwindcss -i ./app/app.tail.css -o ./dist/app.tail.css",
     "build:sass": "sass app/app.scss dist/app.css --load-path node_modules/ --style compressed"
   },
   "devDependencies": {
