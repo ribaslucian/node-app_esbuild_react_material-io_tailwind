@@ -15,7 +15,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
 
 // MUI Components
-import Welcome from './MUIButton';
+import './MUIButton';
 
 // const welcome = <Welcome name="Sara" />;
 

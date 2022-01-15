@@ -9,19 +9,21 @@
     "css-concat": "^0.0.4",
     "dart-sass": "^1.25.0",
     "esbuild": "^0.14.11",
-    "esbuild-sass-plugin": "^2.0.3",
-    "node-sass": "^7.0.1",
-    "npm-run-all": "^4.1.5",
+    "esbuild-plugin-sass": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "scripts": {
-    "build": "esbuild app/app.jsx --bundle --outfile=dist/app.js --minify",
+    "build:js": "esbuild app/app.jsx --bundle --outfile=dist/app.js --minify",
+
     "build:tail": "tailwindcss -i ./app/app.tail.css -o ./dist/app.tail.css --minify",
     "build:sass": "sass app/app.scss dist/app.css --load-path node_modules/ --style compressed",
     "concat:css": "cat dist/app.css dist/app.tail.css > dist/all.css",
+    "build:css": "npm run build:sass && npm run build:tail && npm run concat:css && npm run clean",
     "clean": "del dist/app.tail.css dist/app.css dist/app.css.map",
-    "build:app": "npm run build && npm run build:tail && npm run build:sass && npm run concat:css && npm run clean"
+
+    "build:app": "npm run build:js && npm run build:css",
+    "s": "onchange 'app/**/*.scss' -- npm run build:css"
   },
   "devDependencies": {
     "sass": "^1.48.0",
