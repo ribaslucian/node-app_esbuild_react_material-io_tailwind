@@ -8,7 +8,8 @@ const { build } = require("esbuild");
         minify: true,
         outfile: "dist/app.js",
         banner: {
-            js: "(() => new EventSource('http://localhost:8082').onmessage = () => location.reload())();",
+            // js: "(() => new EventSource('http://localhost:8082').onmessage = () => location.reload())();",
+            js: "(() => new EventSource('http://localhost:8082').onmessage = (m) => console.log(m))();",
         },
     })
 

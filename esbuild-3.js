@@ -20,17 +20,25 @@ http.createServer((req, res) => {
 (async () => {
     
 
-    chokidar.watch("app/**/*.{js,jsx,scss,css}", {
+    // chokidar.watch("app/**/*.{jsx, scss}", {
+    chokidar.watch("app/MUIButton.jsx", {
         interval: 0,
-    }).on("all", () => {
+    }).on("all", (e, m) => {
+        console.log(e, m)
         console.log('--')
         console.log('Bulding...')
 
         // execSync("npm run build:sass")
+        clients.forEach((res) => res.write('data: build:start\n\n'))
+        clients.length = 0
+
         execSync('npm run build:js:reload')
-        clients.forEach((res) => res.write('data: update\n\n'))
+
+        clients.forEach((res) => res.write('data: build:end\n\n'))
         clients.length = 0
         // execSync("npm run build:sass")
+
+        // document.getElementById("building-status").style.display = "none";
 
         console.log('Bulding Ok')
         console.log('--')
