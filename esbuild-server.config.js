@@ -4,6 +4,8 @@ const liveServer = require("live-server");
 const {execSync} = require('child_process');
 
 (async () => {
+    
+    
     // `esbuild` bundler for JavaScript / TypeScript.
     const builder = await build({
         // Bundles JavaScript.
@@ -20,6 +22,7 @@ const {execSync} = require('child_process');
         // Bundles JavaScript to (see `entryPoints`).
         outfile: "dist/app.js",
     })
+    
     // `chokidar` watcher source changes.
     chokidar
         // Watches TypeScript and React TypeScript.
@@ -32,7 +35,8 @@ const {execSync} = require('child_process');
             execSync("npm run build:sass")
             builder.rebuild()
         })
-    // `liveServer` local server for hot reload.
+    
+        // `liveServer` local server for hot reload.
     // para funcionar no windows-10/ubuntu rode: $ export PATH=$PATH:/mnt/c/Windows/System32
     liveServer.start({
         // Opens the local server on start.

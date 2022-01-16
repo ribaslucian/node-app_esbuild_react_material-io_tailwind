@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build:js": "esbuild app/app.jsx --bundle --outfile=dist/app.js --minify",
+    "build:js:reload": "node build-js-reload.js",
     "build:tail": "tailwindcss -i ./app/app.tail.css -o ./dist/app.tail.css --minify",
     "build:sass": "sass app/app.scss dist/app.css --load-path node_modules/ --style compressed",
     "concat:css": "cat dist/app.css dist/app.tail.css > dist/all.css",
