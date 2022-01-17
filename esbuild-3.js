@@ -18,7 +18,7 @@ http.createServer((req, res) => {
 
 
 (async () => {
-    
+
 
     // chokidar.watch("app/**/*.{jsx, scss}", {
     chokidar.watch("app/MUIButton.jsx", {
@@ -28,9 +28,17 @@ http.createServer((req, res) => {
         console.log('--')
         console.log('Bulding...')
 
-        // execSync("npm run build:sass")
-        clients.forEach((res) => res.write('data: build:start\n\n'))
-        clients.length = 0
+        // Writing string data
+        clients.forEach(function (res) {
+            res.write("Heyy geeksforgeeks ", 'utf8', () => {
+                console.log("Writing string Data...");
+            });
+
+            // Prints Output on the browser in response
+            // res.end(' ok');
+        })
+
+        
 
         execSync('npm run build:js:reload')
 
